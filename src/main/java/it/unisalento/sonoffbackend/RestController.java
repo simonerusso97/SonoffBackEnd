@@ -13,10 +13,12 @@ import com.squareup.okhttp.Response;
 public class RestController {
 
 	OkHttpClient client = new OkHttpClient();
+	
+	String host = "http://192.168.1.100:3000/";
 
 	@RequestMapping(value = "changeStatusOFF", method = RequestMethod.GET)
 	public ResponseEntity<Boolean> changeStatusOFF() throws Exception {
-		Request request = new Request.Builder().url("http://192.168.1.67:3000/changeStatusOFF").build();
+		Request request = new Request.Builder().url(host+"changeStatusOFF").build();
 		Response response = client.newCall(request).execute();
 		if (response.isSuccessful()) {
 			return new ResponseEntity<>(HttpStatus.OK);
@@ -27,7 +29,7 @@ public class RestController {
 
 	@RequestMapping(value = "changeStatusON", method = RequestMethod.GET)
 	public ResponseEntity<Boolean> changeStatusON() throws Exception {
-		Request request = new Request.Builder().url("http://192.168.1.67:3000/changeStatusON").build();
+		Request request = new Request.Builder().url(host+"changeStatusON").build();
 		Response response = client.newCall(request).execute();
 		if (response.isSuccessful()) {
 			return new ResponseEntity<>(HttpStatus.OK);
@@ -36,9 +38,9 @@ public class RestController {
 
 	}
 
-	
+	//TODO: response come funziona?
 	  @RequestMapping(value="getStatus", method = RequestMethod.GET) public String getStatus() throws Exception{
-		   Request request = new Request.Builder().url("http://192.168.1.67:3000/getStatus").build();
+		   Request request = new Request.Builder().url(host+"getStatus").build();
 		   Response response = client.newCall(request).execute();
 		   return response.toString();
 	  }
