@@ -14,7 +14,7 @@ public class RestController {
 
 	OkHttpClient client = new OkHttpClient();
 	
-	String host = "http://192.168.1.100:3000/";
+	String host = "http://192.168.1.100:8080/";
 
 	@RequestMapping(value = "changeStatusOFF", method = RequestMethod.GET)
 	public ResponseEntity<Boolean> changeStatusOFF() throws Exception {
@@ -42,7 +42,7 @@ public class RestController {
 	  @RequestMapping(value="getStatus", method = RequestMethod.GET) public String getStatus() throws Exception{
 		   Request request = new Request.Builder().url(host+"getStatus").build();
 		   Response response = client.newCall(request).execute();
-		   return response.toString();
+		   return response.body().string();
 	  }
 	
 }
