@@ -14,7 +14,7 @@ public class RestController {
 
 	OkHttpClient client = new OkHttpClient();
 	
-	String host = "http://localhost:8080/";
+	String host = "http://localhost:8081/";
 
 	@RequestMapping(value = "changeStatusOFF", method = RequestMethod.GET)
 	public ResponseEntity<Boolean> changeStatusOFF() throws Exception {

@@ -11,7 +11,7 @@ public class SonoffBackEndApplication {
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(SonoffBackEndApplication.class);
         app.setDefaultProperties(Collections
-          .singletonMap("server.port", "8083"));
+          .singletonMap("server.port", "8082"));
         app.run(args);
 	}
 
